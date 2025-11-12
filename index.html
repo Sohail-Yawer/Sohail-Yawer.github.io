@@ -3,10 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sohail Yawer - Portfolio</title>
-  <meta http-equiv="refresh" content="0; url=sailyawer.html" />
+  <title>Sohail Yawer | Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-top: 60px;
+    }
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #aad3e6;
+      font-size: 1.1rem;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .card h2 {
+      color: #f0f8ff;
+      font-size: 1.4rem;
+    }
+    .card p {
+      color: #cce1f0;
+      font-size: 1rem;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 12px;
+      background: #4db6ac;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .card a:hover {
+      background: #26a69a;
+    }
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      color: #b0c7d4;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="sailyawer.html">sailyawer.html</a>...</p>
+  <header>
+    <h1>👋 Hi, I'm Sohail Yawer</h1>
+    <p>Software Developer · Data Analyst · Game Enthusiast</p>
+  </header>
+
+  <section class="projects">
+    <div class="card">
+      <h2>SailDex</h2>
+      <p>A Pokémon-inspired web app built with React and REST APIs.</p>
+      <a href="https://sohail-yawer.github.io/saildex/" target="_blank">View Project</a>
+    </div>
+
+    <div class="card">
+      <h2>Mystic Elements</h2>
+      <p>2D Unity platformer game where players freeze enemy monsters.</p>
+      <a href="https://sohail-yawer.github.io/mystic-elements/" target="_blank">View Game</a>
+    </div>
+
+    <div class="card">
+      <h2>Dialogue Referencer</h2>
+      <p>Web app for iconic Telugu movie dialogues with timings.</p>
+      <a href="https://sohail-yawer.github.io/dialogue-referencer/" target="_blank">View App</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Sohail Yawer | Built with 💙 using HTML & CSS
+  </footer>
 </body>
 </html>
