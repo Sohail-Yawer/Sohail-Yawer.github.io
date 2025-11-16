@@ -1,8 +1,13 @@
+import Navbar from "./components/Navbar/Navbar";
+import "./App.css";
+
 export default function App() {
     return (
         <>
-            {/* Components will go here */}
-            <p>Hi, I am SaiLsiuS!</p>
+            <Navbar />
+
+            {/* We will add Hero section next */}
+            <section id="home"></section>
         </>
     );
 }
