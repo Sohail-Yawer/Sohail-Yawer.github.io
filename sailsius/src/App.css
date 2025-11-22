@@ -1,4 +1,7 @@
-/* NAVBAR AS A RESPONSIVE 3-COLUMN GRID */
+/* =============================== */
+/*   NAVBAR AS A RESPONSIVE GRID   */
+/* =============================== */
+
 .navbar-container {
     width: 100%;
     height: 80px;
@@ -30,7 +33,7 @@
     display: inline-block;
     padding: 6px 12px;
     border-radius: 40px;
-    border: 2px solid currentColor; /* adapts to theme */
+    border: 2px solid currentColor;
 }
 
 /* MINI NAV LINKS */
@@ -40,13 +43,11 @@
     gap: 30px;
 }
 
-/* Base link style */
 .mini-nav a {
     text-decoration: none;
-    color: inherit;   /* adapt to theme or navbar text color */
+    color: inherit;
     font-size: 1.05rem;
     font-weight: 500;
-
     padding: 6px 14px;
     border-radius: 30px;
     transition: all 0.25s ease;
@@ -81,7 +82,7 @@
 /* SOCIAL ICONS */
 .social-icons {
     display: flex;
-    gap: 12px;
+    gap: 26px;
 }
 
 .social-icons a {
@@ -91,44 +92,46 @@
     font-weight: 600;
 }
 
-/* INTRO SECTION (Hero-like layout) */
+/* =============================== */
+/*           INTRO SECTION         */
+/* =============================== */
+
 .intro-section {
     width: 100%;
-    height: 85vh;             /* nearly full screen */
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;          /* safe spacing on mobile */
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
 .intro-content {
-    max-width: 900px;         /* keeps text from stretching */
+    max-width: 900px;
 }
 
-/* Small intro line */
 .intro-line1 {
     font-size: 2rem;
     font-weight: 300;
     margin: 0 0 12px;
 }
 
-/* Big bold name */
 .intro-name {
-    font-size: 4rem;          /* LARGE heading */
+    font-size: 4rem;
     font-weight: 700;
     margin: 0 0 16px;
 }
 
-/* Tagline */
 .intro-tagline {
     font-size: 1.8rem;
     font-weight: 300;
     margin: 0;
 }
 
-/* ===== PROJECTS PAGE ===== */
+/* =============================== */
+/*          PROJECTS PAGE          */
+/* =============================== */
 
 .projects-page {
     width: 100%;
@@ -249,23 +252,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 24px; /* keeps footer height stable even if left is empty */
+    min-height: 24px;
 }
 
-/* left side of footer */
 .project-footer-left {
     flex: 1;
 }
 
-/* right side (GitHub icon always right aligned) */
 .project-footer-right {
     display: flex;
     justify-content: flex-end;
     flex: 0 0 auto;
 }
 
-
-/* LINKS */
 .project-link {
     color: var(--project-link-color);
     font-weight: 500;
@@ -283,7 +282,9 @@
     opacity: 0.7;
 }
 
-/* ===== SKILLS PAGE ===== */
+/* =============================== */
+/*            SKILLS PAGE          */
+/* =============================== */
 
 .skills-page {
     width: 100%;
@@ -291,72 +292,82 @@
     box-sizing: border-box;
 }
 
-.skills-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .skills-title {
     font-size: 2.4rem;
     font-weight: 700;
-    margin: 0 0 8px;
+    text-align: center;
+    margin: 0 0 10px;
 }
 
 .skills-subtitle {
-    font-size: 1.1rem;
+    text-align: center;
+    font-size: 1.05rem;
     font-weight: 300;
-    margin: 0;
+    margin-bottom: 40px;
 }
 
-/* Skill Section (Card Style) */
+/* Skills section card */
 .skill-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 24px 30px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 24px 28px;
 
+    background: var(--skills-bg, #ffffff);
     border: 2px solid var(--skills-border, #cfcfcf);
     border-radius: 18px;
 
-    background: var(--skills-bg, #ffffff);
-    color: var(--skills-text, #111);
-
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Category Title */
-.skill-category-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* Section Title */
+.skill-section h2 {
+    font-size: 1.45rem;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
-/* Skills list */
-.skill-tags-container {
+/* Skill grid */
+.skill-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
 
-/* Skill badge */
-.skill-tag {
+/* Skill pill */
+.skill-card {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 
-    padding: 10px 16px;
-    background: var(--skill-tag-bg, #e6e6e6);
-    border: 1px solid var(--skill-tag-border, #d2d2d2);
-    border-radius: 12px;
+    padding: 10px 15px;
+    border-radius: 14px;
+
+    background: var(--skill-pill-bg, #e6e6e6);
+    border: 1px solid var(--skill-pill-border, #d2d2d2);
+    color: var(--skill-pill-text, #111);
 
     font-size: 1rem;
     font-weight: 500;
 
-    color: var(--skill-tag-text, #111);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Icon placeholder */
+/* Icon */
 .skill-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+.social-icons svg {
+    fill: currentColor;     /* MATCHES NAVBAR TEXT */
     width: 22px;
     height: 22px;
-    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+.social-icons a:hover svg {
+    opacity: 0.6;
 }

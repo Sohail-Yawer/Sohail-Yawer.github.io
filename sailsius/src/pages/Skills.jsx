@@ -1,38 +1,70 @@
+import { devicon } from "../utils/devicon";
+import { useEffect, useState } from "react";
 import SkillSection from "../components/Skills/SkillSection";
 
 export default function Skills() {
+
+    const [iconColor, setIconColor] = useState("");
+
+    useEffect(() => {
+        const css = getComputedStyle(document.documentElement);
+        const c = css.getPropertyValue("--icon-color").trim();
+        setIconColor(c.replace("#", ""));
+    }, []);
+
     return (
         <main className="skills-page">
-            <header className="skills-header">
-                <h1 className="skills-title">Skills</h1>
-                <p className="skills-subtitle">
-                    A summary of the tools and technologies I’ve worked with.
-                </p>
-            </header>
+            <h1 className="skills-title">Skills</h1>
 
+            {/* LANGUAGES */}
             <SkillSection
                 title="Languages"
                 skills={[
-                    { name: "CSS",        icon: "https://cdn.simpleicons.org/css" },
-                    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-                    { name: "HTML",       icon: "https://cdn.simpleicons.org/html5" },
-                    { name: "Python",     icon: "https://cdn.simpleicons.org/python" },
-                    { name: "C#",         icon: "https://cdn.simpleicons.org/c#" },
-                    { name: "SQL",        icon: "https://cdn.simpleicons.org/postgresql" },
+                    { name: "JavaScript", ...devicon("javascript") },
+                    { name: "Python", ...devicon("python") },
+                    { name: "C#", ...devicon("csharp") },
+                    { name: "Java", ...devicon("java") },
+                    { name: "HTML", ...devicon("html5") },
+                    { name: "CSS", ...devicon("css3") },
+                    { name: "C", ...devicon("c") }
                 ]}
+                iconColor={iconColor}
             />
 
+            {/* LIBRARIES & FRAMEWORKS */}
             <SkillSection
                 title="Frameworks & Libraries"
                 skills={[
-                    { name: "React",      icon: "https://cdn.simpleicons.org/react" },
-                    { name: "Unity",      icon: "https://cdn.simpleicons.org/unity" },
-                    { name: "NumPy",      icon: "https://cdn.simpleicons.org/numpy" },
-                    { name: "OpenCV",     icon: "https://cdn.simpleicons.org/opencv" },
-                    { name: "TensorFlow", icon: "https://cdn.simpleicons.org/tensorflow" },
-                    { name: "Pandas",     icon: "https://cdn.simpleicons.org/pandas" },
+                    { name: "React", ...devicon("react", { hasPlain: false }) },
+                    { name: "Unity", ...devicon("unity") },
+                    { name: "NumPy", ...devicon("numpy", { hasPlain: false }) },
+                    { name: "OpenCV", ...devicon("opencv", { hasPlain: false }) },
+                    { name: "TensorFlow", ...devicon("tensorflow") },
+                    { name: "Pandas", ...devicon("pandas", { hasPlain: false }) },
+                    { name: "AngularJS", ...devicon("angularjs") },
+                    { name: "PyTorch", ...devicon("pytorch", { hasPlain: false }) },
+                    { name: "jQuery", ...devicon("jquery") },
+                    { name: "Scikit-Learn", ...devicon("scikitlearn", { hasPlain: false }) },
+                    { name: "Matplotlib", ...devicon("matplotlib") },
+                    { name: "GraphQL", ...devicon("graphql")},
+                    { name: "Android Studios", ...devicon("androidstudio") },
+                    { name: "Keras", ...devicon("keras", { hasPlain: false }) }
                 ]}
+                iconColor={iconColor}
             />
+
+            {/* DATABASES */}
+            <SkillSection
+                title="Databases"
+                skills={[
+                    { name: "MongoDB", ...devicon("mongodb") },
+                    { name: "PostgreSQL", ...devicon("postgresql") },
+                    { name: "SQLite", ...devicon("sqlite") },
+                    { name: "MySQL", ...devicon("mysql") }
+                ]}
+                iconColor={iconColor}
+            />
+
         </main>
     );
 }
