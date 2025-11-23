@@ -4,14 +4,6 @@ import SkillSection from "../components/Skills/SkillSection";
 
 export default function Skills() {
 
-    const [iconColor, setIconColor] = useState("");
-
-    useEffect(() => {
-        const css = getComputedStyle(document.documentElement);
-        const c = css.getPropertyValue("--icon-color").trim();
-        setIconColor(c.replace("#", ""));
-    }, []);
-
     return (
         <main className="skills-page">
             <h1 className="skills-title">Skills</h1>
@@ -26,12 +18,11 @@ export default function Skills() {
                     { name: "Java", ...devicon("java") },
                     { name: "HTML", ...devicon("html5") },
                     { name: "CSS", ...devicon("css3") },
-                    { name: "C", ...devicon("c") }
+                    { name: "C", ...devicon("c", { hasPlain: false }) }
                 ]}
-                iconColor={iconColor}
             />
 
-            {/* LIBRARIES & FRAMEWORKS */}
+            {/* FRAMEWORKS */}
             <SkillSection
                 title="Frameworks & Libraries"
                 skills={[
@@ -39,18 +30,17 @@ export default function Skills() {
                     { name: "Unity", ...devicon("unity") },
                     { name: "NumPy", ...devicon("numpy", { hasPlain: false }) },
                     { name: "OpenCV", ...devicon("opencv", { hasPlain: false }) },
-                    { name: "TensorFlow", ...devicon("tensorflow") },
+                    { name: "TensorFlow", ...devicon("tensorflow", { hasPlain: false }) },
                     { name: "Pandas", ...devicon("pandas", { hasPlain: false }) },
                     { name: "AngularJS", ...devicon("angularjs") },
                     { name: "PyTorch", ...devicon("pytorch", { hasPlain: false }) },
                     { name: "jQuery", ...devicon("jquery") },
                     { name: "Scikit-Learn", ...devicon("scikitlearn", { hasPlain: false }) },
                     { name: "Matplotlib", ...devicon("matplotlib") },
-                    { name: "GraphQL", ...devicon("graphql")},
+                    { name: "GraphQL", ...devicon("graphql") },
                     { name: "Android Studios", ...devicon("androidstudio") },
                     { name: "Keras", ...devicon("keras", { hasPlain: false }) }
                 ]}
-                iconColor={iconColor}
             />
 
             {/* DATABASES */}
@@ -60,9 +50,8 @@ export default function Skills() {
                     { name: "MongoDB", ...devicon("mongodb") },
                     { name: "PostgreSQL", ...devicon("postgresql") },
                     { name: "SQLite", ...devicon("sqlite") },
-                    { name: "MySQL", ...devicon("mysql") }
+                    { name: "MySQL", ...devicon("mysql", { hasPlain: false }) }
                 ]}
-                iconColor={iconColor}
             />
 
         </main>

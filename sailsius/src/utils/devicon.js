@@ -1,26 +1,48 @@
-// export function devicon(name, { hasPlain = true } = {}) {
-//     return {
-//         deviconColor: `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`,
-//         deviconPlain: hasPlain
-//             ? `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-plain.svg`
-//             : `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`
-//     };
-// }
 // src/utils/devicon.js
 
 export function devicon(iconName, options = {}) {
     const { hasPlain = true } = options;
-
-    // base directory
     const BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
 
-    // Special override: GraphQL (NO DEVICON AVAILABLE)
+    // =======================
+    // SPECIAL OVERRIDES
+    // =======================
+
+    // GraphQL (Devicon removed original)
     if (iconName === "graphql") {
         return {
-            deviconColor: `${BASE}/${iconName}/${iconName}-plain.svg`,   // custom svg in public/ or src/assets/
-            deviconPlain: `${BASE}/${iconName}/${iconName}-plain.svg`
+            deviconColor: `${BASE}/graphql/graphql-plain.svg`,
+            deviconPlain: `${BASE}/graphql/graphql-plain.svg`
         };
     }
+
+    // C — original removed
+    if (iconName === "c") {
+        return {
+            deviconColor: `${BASE}/c/c-original.svg`,
+            deviconPlain: `${BASE}/c/c-original.svg`
+        };
+    }
+
+    // MySQL — no plain variant
+    if (iconName === "mysql") {
+        return {
+            deviconColor: `${BASE}/mysql/mysql-original-wordmark.svg`,
+            deviconPlain: `${BASE}/mysql/mysql-original-wordmark.svg`
+        };
+    }
+
+    // TensorFlow — plain missing
+    if (iconName === "tensorflow") {
+        return {
+            deviconColor: `${BASE}/tensorflow/tensorflow-original.svg`,
+            deviconPlain: `${BASE}/tensorflow/tensorflow-original.svg`
+        };
+    }
+
+    // =======================
+    // DEFAULT HANDLING
+    // =======================
 
     return {
         deviconColor: `${BASE}/${iconName}/${iconName}-original.svg`,

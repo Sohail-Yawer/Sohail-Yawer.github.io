@@ -33,7 +33,19 @@ const projects = [
         image: signLangImg,
         liveUrl: "",   // no live project
         githubUrl: "https://github.com/Sohail-Yawer/Sign-Language"
+    },
+
+    {
+        id: 3,
+        title: "Yelp Business Search",
+        summary:
+            " Powerful and responsive business search android mobile application utilizing the YELP Rest/Soap APIs.",
+        tech: ["Android Studios", "Java", "Google Cloud Platform"],
+        image: signLangImg,
+        liveUrl: "",   // no live project
+        githubUrl: "https://github.com/Sohail-Yawer/HwYelp"
     }
+
 ];
 
 export default projects;

@@ -1,3 +1,44 @@
+/* ========================================== */
+/*      GLOBAL THEME VARIABLES (BASE THEME)   */
+/* ========================================== */
+
+:root {
+    /* 1. Main page background */
+    --bg-main: #ffffff;
+
+    /* 2. Navbar background */
+    --bg-navbar: whitesmoke;
+
+    /* 3. Default text color */
+    --text-main: #000000;
+
+    /* 4. Heading color */
+    --text-heading: #000000;
+
+    /* 5. Pills + Mini Navbar Borders */
+    --pill-bg: #e6e6e6;
+    --pill-border: #d2d2d2;
+
+    /* Icon color (navbar icons) */
+    --icon-color: var(--text-main);
+
+    /* Project/Skill compatibility */
+    --project-card-bg: var(--bg-main);
+    --project-card-text: var(--text-main);
+
+    --skill-pill-bg: var(--bg-main);
+    --skill-pill-border: var(--pill-border);
+    --skill-icon-color: var(--heading-color);
+
+    --skill-icon-filter: brightness(0) saturate(100%) invert(0);
+}
+
+/* Body background + text */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
 /* =============================== */
 /*   NAVBAR AS A RESPONSIVE GRID   */
 /* =============================== */
@@ -11,11 +52,11 @@
     align-items: center;
 
     padding: 0 30px;
-    background: whitesmoke;
-    color: black;
+    background: var(--bg-navbar);
+    color: var(--text-main);
 
     box-sizing: border-box;
-    overflow: hidden; /* prevents content push */
+    overflow: hidden;
 }
 
 /* LEFT SECTION */
@@ -33,7 +74,7 @@
     display: inline-block;
     padding: 6px 12px;
     border-radius: 40px;
-    border: 2px solid currentColor;
+    border: 2px solid var(--text-main);
 }
 
 /* MINI NAV LINKS */
@@ -55,12 +96,12 @@
 
 /* ACTIVE PAGE CAPSULE */
 .mini-nav a[aria-current="page"] {
-    border: 2px solid currentColor;
+    border: 2px solid var(--text-main);
     border-radius: 30px;
     font-weight: 600;
 }
 
-/* OPTIONAL HOVER EFFECT */
+/* HOVER EFFECT */
 .mini-nav a:hover {
     opacity: 0.7;
 }
@@ -86,10 +127,19 @@
 }
 
 .social-icons a {
-    color: black;
-    font-size: 1.1rem;
-    text-decoration: none;
-    font-weight: 600;
+    color: var(--icon-color);
+}
+
+/* SVG Icons */
+.social-icons svg {
+    fill: currentColor;
+    width: 22px;
+    height: 22px;
+    transition: opacity 0.2s ease;
+}
+
+.social-icons a:hover svg {
+    opacity: 0.6;
 }
 
 /* =============================== */
@@ -115,18 +165,21 @@
     font-size: 2rem;
     font-weight: 300;
     margin: 0 0 12px;
+    color: var(--text-main);
 }
 
 .intro-name {
     font-size: 4rem;
     font-weight: 700;
     margin: 0 0 16px;
+    color: var(--text-heading);
 }
 
 .intro-tagline {
     font-size: 1.8rem;
     font-weight: 300;
     margin: 0;
+    color: var(--text-main);
 }
 
 /* =============================== */
@@ -138,23 +191,22 @@
     min-height: 100vh;
     padding: 40px 30px 60px;
     box-sizing: border-box;
-}
-
-.projects-header {
-    max-width: 900px;
-    margin: 0 auto 32px;
-    text-align: left;
+    color: var(--text-main);
 }
 
 .projects-title {
     font-size: 2.4rem;
     margin: 0 0 8px;
+    color: var(--text-heading);
+    padding-bottom: 1.5rem;
 }
 
 .projects-subtitle {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 300;
+    color: var(--text-main);
+    padding-bottom: 1.5rem;
 }
 
 /* GRID LAYOUT */
@@ -166,20 +218,10 @@
     gap: 24px;
 }
 
-/* THEME VARIABLES */
-:root {
-    --project-card-bg: #ffffff;
-    --project-card-border: #dcdcdc;
-    --project-card-text: #111;
-    --project-tag-bg: #ededed;
-    --project-tag-text: #111;
-    --project-link-color: #111;
-}
-
 /* CARD */
 .project-card {
     background: var(--project-card-bg);
-    border: 1px solid var(--project-card-border);
+    border: 1px solid var(--pill-border);
     color: var(--project-card-text);
     border-radius: 18px;
     overflow: hidden;
@@ -206,13 +248,6 @@
     object-fit: cover;
 }
 
-.project-image.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-}
-
 /* BODY */
 .project-body {
     padding: 16px 18px 14px;
@@ -224,6 +259,7 @@
 .project-title {
     font-size: 1.4rem;
     margin: 0;
+    color: var(--text-heading);
 }
 
 .project-summary {
@@ -240,10 +276,11 @@
 
 .project-tag {
     padding: 4px 10px;
-    background: var(--project-tag-bg);
-    color: var(--project-tag-text);
+    background: var(--pill-bg);
+    color: var(--text-main);
     border-radius: 999px;
     font-size: 0.8rem;
+    border-color: var(--text-heading);
 }
 
 /* FOOTER */
@@ -254,26 +291,16 @@
     align-items: center;
     min-height: 24px;
 }
-
-.project-footer-left {
-    flex: 1;
-}
-
-.project-footer-right {
-    display: flex;
-    justify-content: flex-end;
-    flex: 0 0 auto;
-}
-
 .project-link {
-    color: var(--project-link-color);
+    color: var(--text-main);   /* matches regular text */
     font-weight: 500;
     text-decoration: none;
     font-size: 0.95rem;
 }
 
+
 .project-github {
-    color: var(--project-link-color);
+    color: var(--text-main);
     display: inline-flex;
     align-items: center;
 }
@@ -296,38 +323,28 @@
     font-size: 2.4rem;
     font-weight: 700;
     text-align: center;
-    margin: 0 0 10px;
+    color: var(--text-heading);
 }
 
-.skills-subtitle {
-    text-align: center;
-    font-size: 1.05rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-}
-
-/* Skills section card */
 .skill-section {
     max-width: 1100px;
     margin: 30px auto;
     padding: 24px 28px;
 
-    background: var(--skills-bg, #ffffff);
-    border: 2px solid var(--skills-border, #cfcfcf);
+    background: var(--skill-pill-bg);
+    border: 2px solid var(--skill-pill-border);
     border-radius: 18px;
 
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Section Title */
 .skill-section h2 {
     font-size: 1.45rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: var(--text-heading);
 }
 
-/* Skill grid */
 .skill-grid {
     display: flex;
     flex-wrap: wrap;
@@ -343,31 +360,92 @@
     padding: 10px 15px;
     border-radius: 14px;
 
-    background: var(--skill-pill-bg, #e6e6e6);
-    border: 1px solid var(--skill-pill-border, #d2d2d2);
-    color: var(--skill-pill-text, #111);
-
-    font-size: 1rem;
-    font-weight: 500;
-
-    transition: background 0.3s ease, border-color 0.3s ease;
+    background: var(--pill-bg);
+    border: 1px solid var(--pill-border);
+    color: var(--text-main);
 }
 
-/* Icon */
+/* Icon *//* Force recolor of all devicon SVG paths */
+.skill-icon,
+.skill-icon path,
+.skill-icon svg,
+.skill-icon svg path {
+    fill: var(--skill-icon-color) !important;
+    stroke: var(--skill-icon-color) !important;
+}
+
 .skill-icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
+
 }
 
+/* ========================================== */
+/*              TRUE AUTUMN THEME             */
+/* ========================================== */
 
-.social-icons svg {
-    fill: currentColor;     /* MATCHES NAVBAR TEXT */
-    width: 22px;
-    height: 22px;
-    transition: opacity 0.2s ease;
+[data-theme="trueAutumn"] {
+    --bg-main: #1A0000;
+    --bg-navbar: #4B0000;
+
+    --text-main: #FFA07A;
+    --text-heading: #CD853F;
+
+    --pill-bg: #2D0000;
+    --pill-border: #FFA07A;
+
+    --icon-color: var(--text-main);
+
+    /* Skill icons recolor filter (for orange-like tint) */
+    --skill-icon-filter: brightness(0) saturate(100%) invert(88%) sepia(22%) saturate(923%) hue-rotate(330deg) brightness(101%) contrast(96%);
 }
 
-.social-icons a:hover svg {
-    opacity: 0.6;
+[data-theme="matrixCode"] {
+    --bg-main: #0D0208;
+    --bg-navbar: #0D0208;
+
+    --text-main: #00FF2B;
+    --text-heading: #36BA01;
+
+    --pill-bg: #000000;
+    --pill-border: #00FF2B;
+
+    --icon-color: var(--text-main);
+
+    /* Skill icons recolor filter (for orange-like tint) */
+    --skill-icon-filter: brightness(0) saturate(100%) invert(88%) sepia(22%) saturate(923%) hue-rotate(330deg) brightness(101%) contrast(96%);
+
+}
+
+[data-theme="thalassophobia"] {
+    --bg-main: #05204A;
+    --bg-navbar: #48AFF0;
+
+    --text-main: #E2F1FF;
+    --text-heading: #B3D6FF;
+
+    --pill-bg: #073B7C;
+    --pill-border: #E2F1FF;
+
+    --icon-color: var(--text-main);
+
+    /* Skill icons recolor filter (for orange-like tint) */
+    --skill-icon-filter: brightness(0) saturate(100%) invert(88%) sepia(22%) saturate(923%) hue-rotate(330deg) brightness(101%) contrast(96%);
+
+}
+
+[data-theme="rainforest"] {
+    --bg-main: #0B3D2E;        /* deep jungle green */
+    --bg-navbar: #145A3D;      /* rich rainforest canopy */
+
+    --text-main: #EAF8F0;      /* light mist green (good readability) */
+    --text-heading: #C1F2D0;   /* bright fern highlight */
+
+    --pill-bg: #1C6B4A;        /* mossy green pill background */
+    --pill-border: #A7EBD6;    /* soft pastel green border */
+
+    --icon-color: var(--text-heading);   /* icons match heading color */
+    --skill-icon-filter: brightness(0) saturate(100%) invert(88%) sepia(22%) saturate(923%) hue-rotate(330deg) brightness(101%) contrast(96%);
+
 }

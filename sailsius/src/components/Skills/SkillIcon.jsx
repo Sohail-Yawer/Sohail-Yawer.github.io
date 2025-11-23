@@ -1,26 +1,14 @@
-import { useMemo } from "react";
-import hexToFilter from "../../utils/hexToFilter";
+export default function SkillIcon({ coloredSrc, plainSrc }) {
 
-export default function SkillIcon({ coloredSrc, plainSrc, iconColor, isDefaultTheme }) {
-
-    // compute CSS filter only when color changes
-    const filterStyle = useMemo(() => {
-        if (isDefaultTheme) return "none";
-        if (!iconColor) return "none";
-
-        const { filter } = hexToFilter(iconColor);
-        return filter;
-    }, [iconColor, isDefaultTheme]);
+    // Always show original colored icon
+    // Fallback: if colored is missing, use plain
+    const safeSrc = coloredSrc || plainSrc;
 
     return (
         <img
-            src={isDefaultTheme ? coloredSrc : plainSrc}
+            src={safeSrc}
             alt=""
             className="skill-icon"
-            style={{
-                filter: filterStyle,
-                transition: "filter 0.3s ease"
-            }}
         />
     );
 }

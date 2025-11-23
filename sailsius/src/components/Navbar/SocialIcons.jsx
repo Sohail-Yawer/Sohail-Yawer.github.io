@@ -3,6 +3,8 @@ import LinkedinIcon from "../../icons/LinkedinIcon";
 import ResumeIcon from "../../icons/ResumeIcon";
 import SteamIcon from "../../icons/SteamIcon";
 
+import { Link } from "react-router-dom";
+
 export default function SocialIcons() {
     return (
         <div className="social-icons">
@@ -15,9 +17,9 @@ export default function SocialIcons() {
                 <LinkedinIcon />
             </a>
 
-            <a href="/resume" rel="noreferrer">
+            <Link to="/resume">
                 <ResumeIcon />
-            </a>
+            </Link>
 
             <a href="https://steamcommunity.com/id/sailsius/" target="_blank" rel="noreferrer">
                 <SteamIcon />
